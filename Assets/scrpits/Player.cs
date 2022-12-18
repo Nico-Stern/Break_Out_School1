@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     public float speed = 5f;
     private Rigidbody2D rb;
     public int Absprungwinkel = 1;
+    public float linkeGrenze = -2.5f;
+    public float rechteGrenze = 2.5f;
 
     private void Awake()
     {
@@ -28,7 +30,7 @@ public class Player : MonoBehaviour
         transform.Translate(Movement);
 
         Vector2 position = transform.position;
-        position.x = Mathf.Clamp(position.x, -2.5f, 2.5f);
+        position.x = Mathf.Clamp(position.x, linkeGrenze, rechteGrenze);
         transform.position = position;
     }
 

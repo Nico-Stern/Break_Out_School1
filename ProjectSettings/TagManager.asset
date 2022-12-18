@@ -12,6 +12,7 @@ TagManager:
   - borderDown
   - brickPrepab
   - BrickBorder
+  - Ball
   layers:
   - Default
   - TransparentFX

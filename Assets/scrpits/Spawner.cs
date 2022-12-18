@@ -8,10 +8,14 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public GameObject brickPrefab;
+    public GameObject LastBrickBorder;
+    public BorderBrick Border;
 
     public int xbricks = 1;
     public int ybricks = 1;
     public float cDistance = 0.5f;
+
+
 
     private void Start()
     {
@@ -19,30 +23,29 @@ public class Spawner : MonoBehaviour
 
         for (int i = 0; i < ybricks; i++)
         {
-            
+
 
             for (int j = 0; j < xbricks; j++)
             {
 
-                
+
                 Instantiate(brickPrefab, transform.position, Quaternion.identity);
                 transform.position += Vector3.right;
 
             }
-            
-            
+
+
             transform.position += Vector3.down;
 
             transform.position += Vector3.left * xbricks;
 
             transform.position += Vector3.down * cDistance;
 
+
+
             
-        }
+        } 
         int Anzahl = xbricks * ybricks;
-        print(Anzahl);  
-        
-        
-        
-    }    
+        print(Anzahl + " steine sind im spiel");
+    }
 }
