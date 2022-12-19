@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,13 +16,25 @@ public class Ball : MonoBehaviour
     private Rigidbody2D rb;
     
     // Start is called before the first frame update
+    private void Update()
+    {
+        if (rb.velocity == Vector2.zero)
+        {
+             
+            if (Input.GetKeyDown(KeyCode.Space) == true)
+            {
+                LaunchBall();
+            }
+        }
+    }
+
     void Start()
     {
-        LaunchBall();
+        
     }
 
     // Update is called once per frame
-
+    
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -34,30 +47,35 @@ public class Ball : MonoBehaviour
 
     private void BallReset()
     {
-        Vector3 Nballpostion = new Vector3(0, -2,0);
-        rb.velocity = Vector3.zero;
+        Vector3 Nballpostion = new Vector3(0, -2, 0);
         transform.position = Nballpostion;
+        rb.velocity = Vector3.zero;
     }
 
     private void Ballwinkel1()
     {
         rb.velocity = Vector3.right * Winkel1 + (Vector3.up * initialSpeed);
+        rb.velocity.Normalize();
     }
     private void Ballwinkel2()
     {
         rb.velocity = Vector3.right * Winkel2 + (Vector3.up * initialSpeed);
+        rb.velocity.Normalize();
     }
     private void Ballwinkel3()
     {
         rb.velocity = Vector3.right * Winkel3 + (Vector3.up * initialSpeed);
+        rb.velocity.Normalize();
     }
     private void Ballwinkel4()
     {
         rb.velocity = Vector3.right * Winkel4 + (Vector3.up * initialSpeed);
+        rb.velocity.Normalize();
     }
     private void Ballwinkel5()
     {
         rb.velocity = Vector3.right * Winkel5 + (Vector3.up * initialSpeed);
+        rb.velocity.Normalize();
     }
     private void OnCollisionEnter2D(Collision2D col)
     {
@@ -67,7 +85,14 @@ public class Ball : MonoBehaviour
 
             
 
-            LaunchBall();
+            if (rb.velocity == Vector2.zero)
+            {
+                 
+                if (Input.GetKeyDown(KeyCode.Space) == true)
+                {
+                    LaunchBall();
+                }
+            }
         }
         if (col.gameObject.CompareTag("Player1"))
         {
