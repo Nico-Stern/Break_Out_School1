@@ -1,17 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
 
-public class BorderBrick : MonoBehaviour
+public class BorderbrickLvl2 : MonoBehaviour
 {
-    private int nextscene;
-    private void Start()
-    {
-        nextscene = SceneManager.GetActiveScene().buildIndex + 1;
-    }
 
     int AnzahlLastBrick = 0;
 
@@ -30,8 +23,8 @@ public class BorderBrick : MonoBehaviour
         {
             if (AnzahlLastBrick <= 0)
             {
-                SceneManager.LoadScene(nextscene);
+                SceneManager.LoadScene("Level_3");
             }
         }
-    }   
+    }
 }

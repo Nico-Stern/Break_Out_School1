@@ -1508,7 +1508,7 @@ MonoBehaviour:
   LastBrickBorder: {fileID: 6034810288726533666, guid: d215ecbf67b201a409c04da41e58e6fd, type: 3}
   Border: {fileID: 0}
   xbricks: 7
-  ybricks: 5
+  ybricks: 3
   cDistance: 0.1
 --- !u!4 &915114332
 Transform:
