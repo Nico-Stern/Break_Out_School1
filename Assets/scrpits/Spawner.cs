@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Net.NetworkInformation;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 
 public class Spawner : MonoBehaviour
 {
     public GameObject brickPrefab;
-    public GameObject LastBrickBorder;
     public BorderBrick Border;
 
     public int xbricks = 1;
@@ -17,10 +18,12 @@ public class Spawner : MonoBehaviour
 
 
 
+
     private void Start()
     {
-
-
+        
+        Debug.Log(Border.Level);
+        
         for (int i = 0; i < ybricks; i++)
         {
 
@@ -46,6 +49,7 @@ public class Spawner : MonoBehaviour
             
         } 
         int Anzahl = xbricks * ybricks;
-        print(Anzahl + " steine sind im spiel");
+        
     }
+    
 }
