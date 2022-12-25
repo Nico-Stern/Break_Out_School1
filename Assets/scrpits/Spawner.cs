@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Net.NetworkInformation;
 using TMPro;
 using UnityEditor;
@@ -15,6 +16,7 @@ public class Spawner : MonoBehaviour
     public int xbricks = 1;
     public int ybricks = 1;
     public float cDistance = 0.5f;
+    
 
 
 
@@ -31,7 +33,7 @@ public class Spawner : MonoBehaviour
             for (int j = 0; j < xbricks; j++)
             {
 
-
+                
                 Instantiate(brickPrefab, transform.position, Quaternion.identity);
                 transform.position += Vector3.right;
 
