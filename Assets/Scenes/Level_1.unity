@@ -1648,6 +1648,7 @@ GameObject:
   - component: {fileID: 442381034}
   - component: {fileID: 442381033}
   - component: {fileID: 442381032}
+  - component: {fileID: 442381036}
   - component: {fileID: 442381035}
   m_Layer: 0
   m_Name: Ball
@@ -1716,7 +1717,7 @@ Transform:
   m_Children:
   - {fileID: 1714015381}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &442381035
 MonoBehaviour:
@@ -1741,8 +1742,21 @@ MonoBehaviour:
   Life: 3
   lifepoints: {fileID: 1895715531}
   Scorepoints: {fileID: 1599275260}
-  score: 0
-  multi: 1
+  BorderBrick: {fileID: 442381036}
+--- !u!114 &442381036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442381031}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 632be81f07a99de4298182af51ae8905, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Spawner: {fileID: 0}
+  AnzahlLastBrick: 0
 --- !u!1 &449668287
 GameObject:
   m_ObjectHideFlags: 0
@@ -1967,7 +1981,7 @@ Transform:
   - {fileID: 545141592}
   - {fileID: 1937704850}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &458972937
 PrefabInstance:
@@ -2843,7 +2857,7 @@ RectTransform:
   - {fileID: 1895715530}
   - {fileID: 1599275259}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3370,7 +3384,7 @@ Transform:
   - {fileID: 1106695415}
   - {fileID: 1838444438}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &773356252
 PrefabInstance:
@@ -3927,10 +3941,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brickPrefab: {fileID: 3137297809086733631, guid: 9b74091090edc694bb5bd3189d81f5f8, type: 3}
-  Border: {fileID: 2059992206}
+  Border: {fileID: 0}
   xbricks: 7
   ybricks: 5
   cDistance: 0.1
+  Anzahlxy: 0
 --- !u!4 &915114332
 Transform:
   m_ObjectHideFlags: 0
@@ -5711,7 +5726,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3346106284714807053, guid: d215ecbf67b201a409c04da41e58e6fd, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3346106284714807053, guid: d215ecbf67b201a409c04da41e58e6fd, type: 3}
       propertyPath: m_LocalScale.x
@@ -5773,7 +5788,12 @@ PrefabInstance:
       propertyPath: Anzahlpoints
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8127406501440895125, guid: d215ecbf67b201a409c04da41e58e6fd, type: 3}
+      propertyPath: AnzahlLastBrick
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8127406501440895125, guid: d215ecbf67b201a409c04da41e58e6fd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d215ecbf67b201a409c04da41e58e6fd, type: 3}
 --- !u!1 &1323283647
 GameObject:
@@ -5808,7 +5828,7 @@ Transform:
   - {fileID: 205667507}
   - {fileID: 91806980}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1343583306
 PrefabInstance:
@@ -6194,7 +6214,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1431255283
 GameObject:
@@ -6820,7 +6840,7 @@ Transform:
   - {fileID: 1026307760}
   - {fileID: 513668301}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1599275258
 GameObject:
@@ -7388,7 +7408,7 @@ Transform:
   - {fileID: 1431255284}
   - {fileID: 1268033672}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1704681485
 GameObject:
@@ -8237,6 +8257,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4187313732227972892, guid: 9b74091090edc694bb5bd3189d81f5f8, type: 3}
   m_PrefabInstance: {fileID: 1815838613}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1837113370 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6034810288726533666, guid: d215ecbf67b201a409c04da41e58e6fd, type: 3}
+  m_PrefabInstance: {fileID: 1319602667}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1837113374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837113370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 632be81f07a99de4298182af51ae8905, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Spawner: {fileID: 915114331}
+  AnzahlLastBrick: 0
 --- !u!1 &1838444437
 GameObject:
   m_ObjectHideFlags: 0
@@ -9307,17 +9346,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4187313732227972892, guid: 9b74091090edc694bb5bd3189d81f5f8, type: 3}
   m_PrefabInstance: {fileID: 2043197774}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2059992206 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8127406501440895125, guid: d215ecbf67b201a409c04da41e58e6fd, type: 3}
-  m_PrefabInstance: {fileID: 1319602667}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 632be81f07a99de4298182af51ae8905, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2070967909
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9975,7 +10003,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4318803029654498967, guid: 8af5f30881144b04b81baffa53e6098a, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4318803029654498967, guid: 8af5f30881144b04b81baffa53e6098a, type: 3}
       propertyPath: m_LocalPosition.x

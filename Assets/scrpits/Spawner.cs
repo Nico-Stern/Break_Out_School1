@@ -16,15 +16,16 @@ public class Spawner : MonoBehaviour
     public int xbricks = 1;
     public int ybricks = 1;
     public float cDistance = 0.5f;
+    public int Anzahlxy = 0;
     
 
 
 
 
-    private void Start()
+    public void Start()
     {
         
-        Debug.Log(Border.Level);
+        
         
         for (int i = 0; i < ybricks; i++)
         {
@@ -50,7 +51,7 @@ public class Spawner : MonoBehaviour
 
             
         } 
-        int Anzahl = xbricks * ybricks;
+        Anzahlxy = xbricks * ybricks;
         
     }
     

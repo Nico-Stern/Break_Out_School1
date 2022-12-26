@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -19,12 +20,15 @@ public class Ball : MonoBehaviour
     public int Life = 3;
     public Text lifepoints;
     public Text Scorepoints;
-    public int score = 0;
-    public int multi = 0;
+    public static int score = 0;
+    public static int multi = 1;
+
+    public BorderBrick BorderBrick;
     
     
     // Start is called before the first frame update
-    private void Update()
+    public void Update()
+
     {
         {
             lifepoints.text = Life.ToString();
@@ -32,6 +36,8 @@ public class Ball : MonoBehaviour
         {
             Scorepoints.text = score.ToString();
         }
+        
+
         if (rb.velocity == Vector2.zero)
         {
              
@@ -40,15 +46,13 @@ public class Ball : MonoBehaviour
                 LaunchBall();
             }
         }
+        
     }
-
-    void Start()
+    public void LateUpdate()
     {
         
     }
 
-    
-    
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -97,7 +101,7 @@ public class Ball : MonoBehaviour
         {
             print(multi);
             BallReset();
-            multi = 0;
+            multi = 1;
 
 
             Life += -1;
@@ -119,42 +123,43 @@ public class Ball : MonoBehaviour
         {
             print(multi);
             Ballwinkel1();
-            multi = 0;
+            multi = 1;
         }
         if (col.gameObject.CompareTag("Player2"))
         {
             print(multi);
             Ballwinkel2();
-            multi = 0;
+            multi = 1;
         }
         if (col.gameObject.CompareTag("Player3"))
         {
             print(multi);
             Ballwinkel3();
-            multi = 0;
+            multi = 1;
         }
         if (col.gameObject.CompareTag("Player4"))
         {
             print(multi);
             Ballwinkel4();
-            multi = 0;
+            multi = 1;
         }
         if (col.gameObject.CompareTag("Player5"))
         {
             print(multi);
             Ballwinkel5();
-            multi = 0;
+            multi = 1;
         }
         if (col.gameObject.CompareTag("brickPrepab"))
         {
-            multi += 1;
-            score += 50 * multi;
             
+            score += 50 * multi;
+            multi += 1;
 
-            print("score is " + score);
-        }
-        
-
+            print("score is " + score);            
+        }       
     }
+    
+    
+    
 
 }
