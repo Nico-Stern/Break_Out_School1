@@ -35,9 +35,7 @@ public class Ball : MonoBehaviour
         }
         {
             Scorepoints.text = score.ToString();
-        }
-        
-
+        }        
         if (rb.velocity == Vector2.zero)
         {
              
@@ -45,14 +43,8 @@ public class Ball : MonoBehaviour
             {
                 LaunchBall();
             }
-        }
-        
-    }
-    public void LateUpdate()
-    {
-        
-    }
-
+        }        
+    }  
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
