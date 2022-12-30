@@ -84,11 +84,6 @@ public class Ball : MonoBehaviour
         rb.velocity = Vector3.right * Winkel4 + (Vector3.up * initialSpeed);
         rb.velocity.Normalize();
     }
-    private void Ballwinkel5()
-    {
-        rb.velocity = Vector3.right * Winkel5 + (Vector3.up * initialSpeed);
-        rb.velocity.Normalize();
-    }
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (!col.gameObject.CompareTag("borderDown"))
