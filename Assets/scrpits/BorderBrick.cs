@@ -10,26 +10,12 @@ public class BorderBrick : MonoBehaviour
 {
     public Spawner Spawner;
     private int nextscene;
-    
     public int AnzahlLastBrick = 0;
-    private void Start()
-    {
-        
-    }
-    
-
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        
-        
-    }
-
     public void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("brickPrepab"))
         {
             AnzahlLastBrick++;
-            print("Bricks = " + AnzahlLastBrick);
         }   
     }
     public void Update()
@@ -38,7 +24,5 @@ public class BorderBrick : MonoBehaviour
         {
             SceneManager.LoadScene("Win");
         }
-    }
-        
-    
+    }    
 }

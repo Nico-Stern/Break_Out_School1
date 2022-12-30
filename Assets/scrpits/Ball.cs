@@ -20,25 +20,30 @@ public class Ball : MonoBehaviour
     public int Life = 3;
     public Text lifepoints;
     public Text Scorepoints;
+    public Text MultiPoints;
     public static int score = 0;
-    public static int multi = 1;
-
+    public static int multi = 0;
+    public AudioClip beruehren;
+    private AudioSource Source;
     public BorderBrick BorderBrick;
-    
-    
-    // Start is called before the first frame update
+    public AudioClip dmg;
+    private void Start()
+    {
+        Source= GetComponent<AudioSource>();
+    }
     public void Update()
-
     {
         {
             lifepoints.text = Life.ToString();
         }
         {
             Scorepoints.text = score.ToString();
-        }        
-        if (rb.velocity == Vector2.zero)
+        }
         {
-             
+            MultiPoints.text = multi.ToString();
+        }
+        if (rb.velocity == Vector2.zero)
+        {            
             if (Input.GetKeyDown(KeyCode.Space) == true)
             {
                 LaunchBall();
@@ -48,20 +53,17 @@ public class Ball : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-
     }
     private void LaunchBall()
     {
         rb.velocity = Vector3.up * initialSpeed;
     }
-
     private void BallReset()
     {
         Vector3 Nballpostion = new Vector3(0, -2, 0);
         transform.position = Nballpostion;
         rb.velocity = Vector3.zero;
     }
-
     private void Ballwinkel1()
     {
         rb.velocity = Vector3.right * Winkel1 + (Vector3.up * initialSpeed);
@@ -89,22 +91,24 @@ public class Ball : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D col)
     {
+        if (!col.gameObject.CompareTag("borderDown"))
+        {
+            Source.clip = beruehren;
+            Source.Play();
+        }
         if (col.gameObject.CompareTag("borderDown"))
         {
-            print(multi);
             BallReset();
-            multi = 1;
-
-
-            Life += -1;
-            
+            multi = 0;
+            Source.clip = dmg;
+            Source.Play();
+            Life += -1;           
              if( Life == 0 )
             {
                 SceneManager.LoadScene("Death");
             }
             if (rb.velocity == Vector2.zero)
-            {
-                 
+            {                
                 if (Input.GetKeyDown(KeyCode.Space) == true)
                 {
                     LaunchBall();
@@ -113,45 +117,29 @@ public class Ball : MonoBehaviour
         }
         if (col.gameObject.CompareTag("Player1"))
         {
-            print(multi);
             Ballwinkel1();
-            multi = 1;
+            multi = 0;
         }
         if (col.gameObject.CompareTag("Player2"))
         {
-            print(multi);
             Ballwinkel2();
-            multi = 1;
+            multi = 0;
         }
         if (col.gameObject.CompareTag("Player3"))
         {
-            print(multi);
             Ballwinkel3();
-            multi = 1;
+            multi = 0;
         }
         if (col.gameObject.CompareTag("Player4"))
         {
-            print(multi);
             Ballwinkel4();
-            multi = 1;
-        }
-        if (col.gameObject.CompareTag("Player5"))
-        {
-            print(multi);
-            Ballwinkel5();
-            multi = 1;
+            multi = 0;
         }
         if (col.gameObject.CompareTag("brickPrepab"))
         {
-            
-            score += 50 * multi;
             multi += 1;
-
-            print("score is " + score);            
+            score += 50 * multi;
+                    
         }       
     }
-    
-    
-    
-
 }

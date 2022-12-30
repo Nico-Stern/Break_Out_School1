@@ -5,22 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class Back : MonoBehaviour
 {
-    public Ball Ball;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    public Ball Ball;   
     void Update()
     {
         if (Input.GetButtonDown("Cancel"))
         {
             SceneManager.LoadScene("Menü");
             Ball.score= 0;
-            Ball.multi = 1;
-            
+            Ball.multi = 0;           
         }
     }
 }
