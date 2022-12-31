@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class Ball : MonoBehaviour
 {
+    public Spawner Spawner;
     public float speed = 5f;
     public float launch;
     public float initialSpeed = 10f;
@@ -25,8 +26,8 @@ public class Ball : MonoBehaviour
     public static int multi = 0;
     public AudioClip beruehren;
     private AudioSource Source;
-    public BorderBrick BorderBrick;
     public AudioClip dmg;
+    public int AnzahlLastBrick = 0;
     private void Start()
     {
         Source= GetComponent<AudioSource>();
@@ -42,13 +43,18 @@ public class Ball : MonoBehaviour
         {
             MultiPoints.text = multi.ToString();
         }
+        
         if (rb.velocity == Vector2.zero)
         {            
             if (Input.GetKeyDown(KeyCode.Space) == true)
             {
                 LaunchBall();
             }
-        }        
+        }
+        if (AnzahlLastBrick == Spawner.Anzahlxy)
+        {
+            SceneManager.LoadScene("Win");
+        }
     }  
     private void Awake()
     {
@@ -132,9 +138,9 @@ public class Ball : MonoBehaviour
         }
         if (col.gameObject.CompareTag("brickPrepab"))
         {
+            AnzahlLastBrick++;
             multi += 1;
             score += 50 * multi;
-                    
         }       
     }
 }

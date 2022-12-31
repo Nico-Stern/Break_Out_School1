@@ -14,7 +14,6 @@ using UnityEngine.SocialPlatforms;
 public class Spawner : MonoBehaviour
 {
     public GameObject brickPrefab;
-    public BorderBrick Border;
     public int xbricks = 1;
     public int ybricks = 1;
     public float cDistance = 0.5f;
@@ -36,5 +35,5 @@ public class Spawner : MonoBehaviour
             transform.position += Vector3.down * cDistance;           
         } 
         Anzahlxy = xbricks * ybricks;       
-    }    
+    } 
 }
